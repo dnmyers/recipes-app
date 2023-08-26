@@ -8,9 +8,7 @@ export const loadData = () => {
     };
 }
 
-// Pre-loading the data so the application
-// outputs something without action dispatching.
-const initialState = allRecipesData;
+const initialState = [];
 export const allRecipesReducer = (allRecipes = initialState, action) => {
     switch (action.type) {
         case 'allRecipes/loadData':
@@ -26,7 +24,6 @@ export const allRecipesReducer = (allRecipes = initialState, action) => {
 
 
 export const selectAllRecipes = state => state.allRecipes;
-
 export const selectFilteredAllRecipes = state => {
     const allRecipes = selectAllRecipes(state);
     const searchTerm = selectSearchTerm(state);
@@ -39,24 +36,24 @@ export const selectFilteredAllRecipes = state => {
 }
 
 // This code is for testing the selectors only.
-// const testState = {
-//     allRecipes: allRecipesData,
-//     searchTerm: 'ch'
-// };
+const testState = {
+    allRecipes: allRecipesData,
+    searchTerm: 'ch'
+};
 
-// const testSelectAllRecipes = () => {
-//     console.group('All Recipes');
-//     console.table(selectAllRecipes(testState));
-//     console.groupEnd();
-// }
+const testSelectAllRecipes = () => {
+    console.group('All Recipes');
+    console.table(selectAllRecipes(testState));
+    console.groupEnd();
+}
 
-// const testSelectFilteredAllRecipes = () => {
+const testSelectFilteredAllRecipes = () => {
 
-//     console.group('Recipes filtered by searchTerm');
-//     console.table(selectFilteredAllRecipes(testState));
-//     console.groupEnd();
-// }
+    console.group('Recipes filtered by searchTerm');
+    console.table(selectFilteredAllRecipes(testState));
+    console.groupEnd();
+}
 
-// // Uncomment these to test each selector.
-// testSelectAllRecipes();
-// testSelectFilteredAllRecipes();
+// Uncomment these to test each selector.
+testSelectAllRecipes();
+testSelectFilteredAllRecipes();

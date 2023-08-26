@@ -8,9 +8,7 @@ export const loadData = () => {
     };
 }
 
-// Pre-loading the data so the application
-// outputs something without action dispatching.
-const initialState = allRecipesData;
+const initialState = [];
 export const allRecipesReducer = (allRecipes = initialState, action) => {
     switch (action.type) {
         case 'allRecipes/loadData':
@@ -26,7 +24,6 @@ export const allRecipesReducer = (allRecipes = initialState, action) => {
 
 
 export const selectAllRecipes = state => state.allRecipes;
-
 export const selectFilteredAllRecipes = state => {
     const allRecipes = selectAllRecipes(state);
     const searchTerm = selectSearchTerm(state);

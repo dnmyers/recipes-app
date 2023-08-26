@@ -34,9 +34,5 @@ export const selectFilteredFavoriteRecipes = state => {
     const favoriteRecipes = selectFavoriteRecipes(state);
     const searchTerm = selectSearchTerm(state);
 
-    return favoriteRecipes.filter(
-        recipe => recipe.name.toLowerCase().includes(
-            searchTerm.toLowerCase()
-        )
-    );
-};
+    return favoriteRecipes.filter(recipe =>)
+}

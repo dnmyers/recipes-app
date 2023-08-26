@@ -12,11 +12,9 @@ const favoriteIconURL = 'https://static-assets.codecademy.com/Courses/Learn-Redu
 export const AllRecipes = (props) => {
     const { allRecipes, dispatch } = props;
 
-    const onMount = () => {
+    useEffect(() => {
         dispatch(loadData());
-    }
-
-    useEffect(onMount, [dispatch]);
+    }, [dispatch]);
 
     const onAddRecipeHandler = (recipe) => {
         dispatch(addRecipe(recipe));
